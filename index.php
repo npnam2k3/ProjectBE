@@ -7,15 +7,11 @@ require 'database/connect.php';
 $module = _MODULE_DEFAULT;
 $action = _ACTION_DEFAULT;
 if (!empty($_GET['modules'])) {
-    if (is_string($_GET['modules'])) {
-        $module = $_GET['modules'];
-    }
+    $module = $_GET['modules'];
 }
 
 if (!empty($_GET['action'])) {
-    if (is_string($_GET['action'])) {
-        $action = $_GET['action'];
-    }
+    $action = $_GET['action'];
 }
 
 $path = 'modules/' . $module . '/' . $action . '.php';
@@ -30,4 +26,3 @@ if (file_exists($path)) {
     //echo $path;
     require_once $path;
 }
-

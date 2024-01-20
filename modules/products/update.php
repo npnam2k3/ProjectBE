@@ -1,5 +1,5 @@
 <?php
-$id = (int)$_GET['id'];
+$id = $_GET['id'];
 $sql = "SELECT * FROM tbl_products WHERE product_id={$id}";
 $result = mysqli_query($conn, $sql);
 $arr = mysqli_fetch_assoc($result);
@@ -70,10 +70,7 @@ if (isset($_POST['submit'])) {
                 <input type="number" name="price" class="form-control" placeholder="Giá ..." value="<?php echo (!empty($arr['price']))?$arr['price']:''; ?>">
                 <?php if(!empty($errors['price_empty'])) echo "<p class='error'>{$errors['price_empty']}</p>"; ?>
             </div>
-            <!-- <div class="custom-file">
-                <input type="file" name="file_upload" class="custom-file-input" id="customFile">
-                <label class="custom-file-label" for="customFile">Chọn ảnh</label>
-            </div> -->
+
             <label for="formFile" class="form-label">Chọn ảnh</label>
             <input class="form-control" name="file_upload" type="file" id="formFile">
             <?php if(!empty($errors['choose_file'])) echo "<p class='error'>{$errors['choose_file']}</p>"; ?>
